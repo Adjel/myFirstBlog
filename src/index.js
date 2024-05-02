@@ -1,10 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import Home from "./pages/Home/Home";
+import HeaderComponent from "../src/components/HeaderComponent";
+import Article from "./pages/Article/Article";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ArticlesProvider from "./components/ArticlesProvider";
+
+export default function App() {
+  return (
+    <ArticlesProvider>
+      <body>
+        <header>
+          <HeaderComponent />
+        </header>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="article" element={<Article />} />
+          </Routes>
+        </BrowserRouter>
+      </body>
+    </ArticlesProvider>
+  );
+}
+
+/**
+ *   <body>
+      <ArticlesProvider>
+        <header>
+          <HeaderComponent />
+        </header>
+        <Home />
+      </ArticlesProvider>
+    </body>
+ */
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />

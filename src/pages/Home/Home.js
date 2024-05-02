@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { ArticlesContext } from "../ArticlesProvider";
-import ArticleComponent from "../ArticleComponent/ArticleComponent";
+import { ArticlesContext } from "../../components/ArticlesProvider";
+import ArticleComponent from "../../components/ArticleComponent/ArticleComponent";
 import styled from "styled-components";
 
 function Home() {
