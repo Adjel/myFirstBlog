@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS, FONTFAMILY } from "../../Constants";
 import { FONTSIZE } from "../../Constants";
+import { Link } from "react-router-dom";
 
 function ArticleComponent({ title, article, isPreview = false }) {
   return (
@@ -10,7 +11,7 @@ function ArticleComponent({ title, article, isPreview = false }) {
         <Title>{title}</Title>
       </header>
       <Body>{article}</Body>
-      <ReadMoreButton>Lire la suite</ReadMoreButton>
+      <ReadMoreLink to="/article">Lire la suite</ReadMoreLink>
     </Article>
   );
 }
@@ -32,7 +33,7 @@ const Body = styled.p`
   padding: ${8 / 16}rem 0;
 `;
 
-const ReadMoreButton = styled.button`
+const ReadMoreLink = styled(Link)`
   font-family: ${FONTFAMILY.lato};
   font-size: ${FONTSIZE.button};
   background: none;
