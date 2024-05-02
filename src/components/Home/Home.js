@@ -1,12 +1,14 @@
-import React from "react";
-import { APIContextProvider } from "../apiContext.js/apiContext";
-import Articles from "../Articles/Articles";
+import React, { useContext } from "react";
+import { ArticlesContext } from "../ArticlesProvider";
 
 function Home() {
+  const { articles } = useContext(ArticlesContext);
   return (
-    <APIContextProvider>
-      <Articles />
-    </APIContextProvider>
+    <>
+      {articles.map(({ id, body }) => (
+        <div key={id}>{body}</div>
+      ))}
+    </>
   );
 }
 

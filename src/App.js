@@ -1,10 +1,13 @@
 import "./App.css";
 import Home from "./components/Home/Home";
+import ArticlesProvider from "./components/ArticlesProvider";
 
 function App() {
   return (
     <body>
-      <Home />
+      <ArticlesProvider>
+        <Home />
+      </ArticlesProvider>
     </body>
   );
 }
