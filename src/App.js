@@ -1,10 +1,13 @@
 import "./App.css";
-import FetchArticleComponent from "./components/FetchArticleComponent/FetchArticleComponent";
+import Home from "./components/Home/Home";
+import ArticlesProvider from "./components/ArticlesProvider";
 
 function App() {
   return (
     <body>
-      <FetchArticleComponent />
+      <ArticlesProvider>
+        <Home />
+      </ArticlesProvider>
     </body>
   );
 }
