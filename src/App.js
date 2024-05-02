@@ -1,10 +1,10 @@
 import "./App.css";
-import FetchArticleComponent from "./components/FetchArticleComponent/FetchArticleComponent";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
     <body>
-      <FetchArticleComponent />
+      <Home />
     </body>
   );
 }
