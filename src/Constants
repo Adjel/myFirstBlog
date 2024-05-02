@@ -34,7 +34,6 @@ export const FONTFAMILY = {
 export const FONTSIZE = {
   small: `${10 / 16}rem`,
   button: `${11 / 16}rem`,
-  button: `${11 / 16}rem`,
   optional: `${12 / 16}rem`,
   menu: `${13 / 16}rem`,
   parags: `${16 / 16}rem`,
@@ -43,3 +42,7 @@ export const FONTSIZE = {
   h2: `${18 / 16}rem`,
   h3: `${20 / 16}rem`,
 };
+
+export const ICONSIZE = {
+  phoneAndUp: "3.3rem",
+}
