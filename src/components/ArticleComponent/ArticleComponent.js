@@ -40,6 +40,11 @@ const ReadMoreLink = styled(Link)`
   border: none;
   text-transform: uppercase;
   color: ${COLORS.pimary};
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+  }
 `;
 
 export default ArticleComponent;
