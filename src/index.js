@@ -8,22 +8,25 @@ import HeaderComponent from "../src/components/HeaderComponent";
 import ArticleComponent from "./components/ArticleComponent/ArticleComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticlesProvider from "./components/ArticlesProvider";
+import UserProvider from "./components/UserProvider/UserProvider";
 
 export default function App() {
   return (
-    <ArticlesProvider>
-      <body>
-        <header>
-          <HeaderComponent />
-        </header>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="article" element={<ArticleComponent />} />
-          </Routes>
-        </BrowserRouter>
-      </body>
-    </ArticlesProvider>
+    <UserProvider>
+      <ArticlesProvider>
+        <body>
+          <header>
+            <HeaderComponent />
+          </header>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="article/:id" element={<ArticleComponent />} />
+            </Routes>
+          </BrowserRouter>
+        </body>
+      </ArticlesProvider>
+    </UserProvider>
   );
 }
 

@@ -1,23 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { COLORS, FONTFAMILY } from "../../Constants";
 import { FONTSIZE } from "../../Constants";
 import { Link } from "react-router-dom";
-import { ArticlesContext } from "../ArticlesProvider";
 
 function ArticleItemComponent({ article }) {
-  const { setCurrentArticle } = useContext(ArticlesContext);
-
   return (
     <Article>
       <header>
         <Title>{article.title}</Title>
       </header>
       <Body>{article.body}</Body>
-      <ReadMoreLink to="/article">
-        Lire la suite
-        <ReadmoreButton onClick={setCurrentArticle(article)} />
-      </ReadMoreLink>
+      <ReadMoreLink to={`article/${article.id}`}>Lire la suite</ReadMoreLink>
     </Article>
   );
 }
@@ -53,11 +47,6 @@ const Body = styled.p`
   "-webkit-line-clamp": "4",
   "line-clamp": "4",
   "-webkit-box-orient": "vertical",
-`;
-
-const ReadmoreButton = styled.button`
-  background: none;
-  border: none;
 `;
 
 const ReadMoreLink = styled(Link)`

@@ -3,11 +3,11 @@ import React, { createContext, useCallback, useEffect, useState } from "react";
 export const ArticlesContext = createContext();
 
 const url = "https://jsonplaceholder.typicode.com/posts";
+const articleUrl = "https://jsonplaceholder.typicode.com/posts/";
 
 function ArticlesProvider({ children }) {
   const [articles, setArticles] = useState([]);
-
-  const [currentArticle, setCurrentArticle] = useState(null);
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -18,6 +18,13 @@ function ArticlesProvider({ children }) {
     };
     fetchArticles();
   }, []);
+
+  const getArticle = async (id) => {
+    const response = await fetch(`${articleUrl}${id}`);
+    const json = await response.json();
+
+    setArticle(json);
+  };
 
   const deletArticle = useCallback(
     (newData) => {
@@ -30,7 +37,12 @@ function ArticlesProvider({ children }) {
 
   return (
     <ArticlesContext.Provider
-      value={{ articles, deletArticle, currentArticle, setCurrentArticle }}
+      value={{
+        articles,
+        deletArticle,
+        article,
+        getArticle,
+      }}
     >
       {children}
     </ArticlesContext.Provider>

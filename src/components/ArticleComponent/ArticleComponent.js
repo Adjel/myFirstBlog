@@ -1,21 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { COLORS, FONTFAMILY } from "../../Constants";
 import { FONTSIZE } from "../../Constants";
 import { ArticlesContext } from "../ArticlesProvider";
+import { UserContext } from "../UserProvider/UserProvider";
+import AuthorComponent from "../AuthorComponent/AuthorComponent";
+import { useParams } from "react-router-dom";
 
 function ArticleComponent() {
-  const { currentArticle } = useContext(ArticlesContext);
+  const { id } = useParams();
+  const { article, getArticle } = useContext(ArticlesContext);
+  const { user, getUserbyId } = useContext(UserContext);
+
+  useEffect(() => {
+    getArticle(id);
+    getUserbyId(article.userId);
+    console.log({ user });
+  }, [getUserbyId]);
 
   return (
     <Wrapper>
       <Article>
         <header>
-          <Title>{currentArticle.title}</Title>
+          <Title>{article.title}</Title>
         </header>
-        <Body>{currentArticle.body}</Body>
+        <Body>{article.body}</Body>
       </Article>
-      <AuthorWrapper></AuthorWrapper>
+      <AuthorComponent user={user} />
     </Wrapper>
   );
 }
