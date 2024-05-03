@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { ArticlesContext } from "../../components/ArticlesProvider";
-import ArticleComponent from "../../components/ArticleComponent/ArticleComponent";
+import ArticleComponent from "../../components/ArticleItemComponent/ArticleItemComponent";
 import styled from "styled-components";
 
 function Home() {
   const { articles } = useContext(ArticlesContext);
   return (
     <Wrapper>
-      {articles.map(({ id, title, body }) => (
-        <ArticleComponent key={id} title={title} article={body} />
+      {articles.map((article, { id }) => (
+        <ArticleComponent key={id} article={article} isPreview={true} />
       ))}
     </Wrapper>
   );

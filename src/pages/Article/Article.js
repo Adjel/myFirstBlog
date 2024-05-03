@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ArticlesContext } from "../../components/ArticlesProvider";
+import ArticleComponent from "../../components/ArticleItemComponent/ArticleItemComponent";
 
 export default function Article() {
-  return <></>;
+  const { currentArticle } = useContext(ArticlesContext);
+  return <ArticleComponent article={currentArticle} />;
 }

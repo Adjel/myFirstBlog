@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import Home from "./pages/Home/Home";
 import HeaderComponent from "../src/components/HeaderComponent";
-import Article from "./pages/Article/Article";
+import ArticleComponent from "./components/ArticleComponent/ArticleComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticlesProvider from "./components/ArticlesProvider";
 
@@ -19,7 +19,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="article" element={<Article />} />
+            <Route path="article" element={<ArticleComponent />} />
           </Routes>
         </BrowserRouter>
       </body>

@@ -7,6 +7,8 @@ const url = "https://jsonplaceholder.typicode.com/posts";
 function ArticlesProvider({ children }) {
   const [articles, setArticles] = useState([]);
 
+  const [currentArticle, setCurrentArticle] = useState(null);
+
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await fetch(url);
@@ -27,7 +29,9 @@ function ArticlesProvider({ children }) {
   );
 
   return (
-    <ArticlesContext.Provider value={{ articles, deletArticle }}>
+    <ArticlesContext.Provider
+      value={{ articles, deletArticle, currentArticle, setCurrentArticle }}
+    >
       {children}
     </ArticlesContext.Provider>
   );
