@@ -12,11 +12,17 @@ function ArticleComponent() {
   const { article, getArticle } = useContext(ArticlesContext);
   const { user, getUserbyId } = useContext(UserContext);
 
+  // Here we want the article to load, one time is ok
   useEffect(() => {
     getArticle(id);
+  }, []);
+
+  // first we need the article userId to get the user
+  // then on page reload we need the user again
+  useEffect(() => {
     getUserbyId(article.userId);
     console.log({ user });
-  }, [getUserbyId]);
+  }, [getArticle]);
 
   return (
     <Wrapper>
@@ -26,6 +32,7 @@ function ArticleComponent() {
         </header>
         <Body>{article.body}</Body>
       </Article>
+      <Divider />
       <AuthorComponent user={user} />
     </Wrapper>
   );
@@ -49,6 +56,8 @@ const Body = styled.p`
   font-size: ${FONTSIZE.parag};
 `;
 
-const AuthorWrapper = styled.section``;
+const Divider = styled.hr`
+  border-top: 0.5px solid ${COLORS.Gray.buttonLightGray};
+`;
 
 export default ArticleComponent;
