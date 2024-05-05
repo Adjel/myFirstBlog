@@ -54,7 +54,7 @@ const ReadMoreLink = styled(Link)`
   font-size: ${FONTSIZE.button};
 
   text-transform: uppercase;
-  color: ${COLORS.pimary};
+  color: ${COLORS.primary};
   text-decoration: none;
 
   &:hover {

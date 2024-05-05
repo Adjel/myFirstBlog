@@ -15,6 +15,7 @@ function ArticlesProvider({ children }) {
       const json = await response.json();
 
       setArticles(json);
+      console.log(`in ArticleProvider: ${articles.length}`);
     };
     fetchArticles();
   }, []);
@@ -26,14 +27,20 @@ function ArticlesProvider({ children }) {
     setArticle(json);
   };
 
-  const deletArticle = useCallback(
-    (newData) => {
-      setArticles({
-        ...newData,
-      });
-    },
-    [setArticles]
-  );
+  const deletArticle = async () => {
+    console.log(` deletArticle: article.length ${articles.length}`);
+    console.log(`deletArticle: article.id ${article.id}`);
+    const response = await fetch(`${articleUrl}${article.id}`, {
+      method: "DELETE",
+    });
+    const json = await response.json();
+
+    console.log({ json });
+
+    // we will fake the response
+    console.log(`delete : ${article.id}`);
+    setArticles(articles.filter((item) => item.id !== article.id));
+  };
 
   return (
     <ArticlesContext.Provider

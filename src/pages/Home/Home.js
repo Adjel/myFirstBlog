@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ArticlesContext } from "../../components/ArticlesProvider";
 import ArticleItemComponent from "../../components/ArticleItemComponent/ArticleItemComponent";
 import styled from "styled-components";
 
 function Home() {
   const { articles } = useContext(ArticlesContext);
+
+  useEffect(() => {
+    console.log(`home: ${articles.length}`);
+  }, [articles]);
+
   return (
     <Wrapper>
       {articles.map((article) => (
