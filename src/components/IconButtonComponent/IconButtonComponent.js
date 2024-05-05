@@ -1,15 +1,15 @@
 import React from "react";
-import { CgMenu } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
 import { CgShare } from "react-icons/cg";
+import { CgClose } from "react-icons/cg";
 import styled from "styled-components";
 
 const getIcon = (iconId) => {
   switch (iconId) {
-    case "hamburgerMenu":
-      return <CgMenu />;
     case "search":
       return <CgSearch />;
+    case "close":
+      return <CgClose />;
     case "share":
       return <CgShare />;
     default:

@@ -2,22 +2,22 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { FaReact } from "react-icons/fa6";
 import IconButtonComponent from "../IconButtonComponent/IconButtonComponent";
-import { ArticlesContext } from "../ArticlesProvider";
+import Divider from "../Divider/Divider";
+import HamburgerButton from "../HamburgerButton";
 
 function Header() {
-  const { deletArticle } = useContext(ArticlesContext);
   return (
-    <HeaderWrapper>
-      <Icon title="the brand icon, seems to be the react logo" />
-      <IconButtonsWrapper>
-        <IconButtonComponent iconId={"share"} />
-        <IconButtonComponent iconId={"search"} />
-        <IconButtonComponent
-          iconId={"hamburgerMenu"}
-          onClick={() => deletArticle()}
-        />
-      </IconButtonsWrapper>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <Icon title="the brand icon, seems to be the react logo" />
+        <IconButtonsWrapper>
+          <IconButtonComponent iconId={"share"} />
+          <IconButtonComponent iconId={"search"} />
+          <HamburgerButton />
+        </IconButtonsWrapper>
+      </HeaderWrapper>
+      <Divider />
+    </>
   );
 }
 
@@ -25,9 +25,11 @@ function Header() {
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   min-height: 3.3rem;
   height: ${36 / 16}rem;
   padding: 0 ${24 / 16}rem;
+  margin: ${8 / 16}rem 0;
 `;
 
 const Icon = styled(FaReact)`

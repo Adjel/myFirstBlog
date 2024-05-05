@@ -6,6 +6,7 @@ import { ArticlesContext } from "../ArticlesProvider";
 import { UserContext } from "../UserProvider/UserProvider";
 import AuthorComponent from "../AuthorComponent/AuthorComponent";
 import { useParams } from "react-router-dom";
+import Divider from "../Divider/Divider";
 
 function ArticleComponent() {
   const { id } = useParams();
@@ -54,10 +55,6 @@ const Title = styled.h1`
 const Body = styled.p`
   font-family: ${FONTFAMILY.lato};
   font-size: ${FONTSIZE.parag};
-`;
-
-const Divider = styled.hr`
-  border-top: 0.5px solid ${COLORS.Gray.buttonLightGray};
 `;
 
 export default ArticleComponent;

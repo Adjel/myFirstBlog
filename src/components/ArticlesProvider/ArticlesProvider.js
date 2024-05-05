@@ -27,7 +27,7 @@ function ArticlesProvider({ children }) {
     setArticle(json);
   };
 
-  const deletArticle = async (id) => {
+  const deletArticle = async () => {
     console.log("before");
     console.log(` article: ${articles.length}`);
     console.log(`article.id ${article.id}`);
