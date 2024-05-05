@@ -28,9 +28,8 @@ function ArticlesProvider({ children }) {
   };
 
   const deletArticle = async () => {
-    console.log("before");
-    console.log(` article: ${articles.length}`);
-    console.log(`article.id ${article.id}`);
+    console.log(` deletArticle: article.length ${articles.length}`);
+    console.log(`deletArticle: article.id ${article.id}`);
     const response = await fetch(`${articleUrl}${article.id}`, {
       method: "DELETE",
     });

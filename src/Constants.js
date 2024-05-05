@@ -18,12 +18,15 @@ export const COLORS = {
     mediumGray: "hsl(0 0 65)",
     darkGray: "hsl(0 0 60)",
   },
-  pimary: "hsl(37 45 54)",
+  primary: "hsl(37 45 54)",
 };
 
 export const FONTWEIGHT = {
   one: "100",
+  three: "300",
   normal: "400",
+  five: "500",
+  six: "600",
   bold: "700",
 };
 
@@ -37,6 +40,7 @@ export const FONTSIZE = {
   h2: `${18 / 16}rem`,
   h3: `${26 / 16}rem`,
   parag: `${16 / 16}rem`,
+  buttonMenu: `${13 / 16}rem`,
   button: `${11 / 16}rem`,
 };
 
