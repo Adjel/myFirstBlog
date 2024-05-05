@@ -9,7 +9,6 @@ function HamburgerButton() {
 
   function handleMenu() {
     setIsMenuOpen(!isMenuOpen);
-    console.log({ isMenuOpen });
   }
 
   return (
@@ -20,6 +19,7 @@ function HamburgerButton() {
   );
 }
 
+// used to keep button aligned with other buttons in the header
 const Wrapper = styled.div``;
 
 const MenuButton = styled(CgMenu)`

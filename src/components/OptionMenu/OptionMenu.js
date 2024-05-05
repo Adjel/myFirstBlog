@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FONTFAMILY, COLORS, FONTSIZE, FONTWEIGHT } from "../../Constants";
 import styled from "styled-components";
 import { ArticlesContext } from "../ArticlesProvider/ArticlesProvider";
@@ -14,24 +14,21 @@ function OptionMenu({ isMenuOpen, onDissmis }) {
   const { article, deletArticle } = useContext(ArticlesContext);
   return (
     <Menu style={{ "--isOpen": isMenuOpen ? "flex" : "none" }}>
-      <Overlay isMenuOpen={isMenuOpen}>
+      <Overlay>
         <DismissButtonWrapper>
           <IconButtonComponent iconId={"close"} onClick={onDissmis} />
         </DismissButtonWrapper>
         <OptionsWrapper>
           <li>
-            {/* because we are not in article when we opened the menu we are in home with article list,
-             we can instead add an article */}
-            {article === undefined ? (
+            {article.id == undefined ? (
+              /* we are in article, so we can delete it */
+              <AdministrationButton>Ajouter un article</AdministrationButton>
+            ) : (
+              /* because we are not in article when we opened the menu we are in home with article list,
+          we can instead add an article */
               <AdministrationButton onClick={deletArticle}>
                 Supprimer
               </AdministrationButton>
-            ) : undefined}
-          </li>
-          <li>
-            {/* we are in article, so we can delete it */}
-            {article === undefined ? undefined : (
-              <AdministrationButton>Ajouter un article</AdministrationButton>
             )}
           </li>
         </OptionsWrapper>
@@ -48,16 +45,6 @@ const inAnimation = keyframes`
 
   100% {
     transform: translateX(0%);
-  }
-`;
-
-const outAnimation = keyframes`
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(100%);
   }
 `;
 
@@ -91,8 +78,7 @@ const Overlay = styled.div`
   margin: 0;
   background: white;
 
-  animation: ${({ isMenuOpen }) => (isMenuOpen ? inAnimation : outAnimation)}
-    0.5s ease-in-out;
+  animation: ${inAnimation} 0.5s ease-in-out;
 `;
 
 const OptionsWrapper = styled.ul`
