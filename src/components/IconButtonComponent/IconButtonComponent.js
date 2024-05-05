@@ -2,6 +2,7 @@ import React from "react";
 import { CgMenu } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
 import { CgShare } from "react-icons/cg";
+import styled from "styled-components";
 
 const getIcon = (iconId) => {
   switch (iconId) {
@@ -16,8 +17,13 @@ const getIcon = (iconId) => {
   }
 };
 
-function IconButtonComponent({ iconId }) {
-  return <div>{getIcon(iconId)}</div>;
+function IconButtonComponent({ iconId, onClick }) {
+  return <ButtonWrapper onClick={onClick}>{getIcon(iconId)}</ButtonWrapper>;
 }
+
+const ButtonWrapper = styled.button`
+  border: none;
+  background: none;
+`;
 
 export default IconButtonComponent;
