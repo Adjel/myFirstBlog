@@ -52,7 +52,7 @@ const Body = styled.p`
 const ReadMoreLink = styled(Link)`
   font-family: ${FONTFAMILY.lato};
   font-size: ${FONTSIZE.button};
-
+  letter-spacing: 0.05rem;
   text-transform: uppercase;
   color: ${COLORS.primary};
   text-decoration: none;

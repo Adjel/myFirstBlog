@@ -4,12 +4,15 @@ import { FaReact } from "react-icons/fa6";
 import IconButtonComponent from "../IconButtonComponent/IconButtonComponent";
 import Divider from "../Divider/Divider";
 import HamburgerButton from "../HamburgerButton";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <>
       <HeaderWrapper>
-        <Icon title="the brand icon, seems to be the react logo" />
+        <Link style={{ color: "black" }} to="/">
+          <Icon title="the brand icon, seems to be the react logo" />
+        </Link>
         <IconButtonsWrapper>
           <IconButtonComponent iconId={"share"} />
           <IconButtonComponent iconId={"search"} />

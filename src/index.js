@@ -9,37 +9,31 @@ import ArticleComponent from "./components/ArticleComponent/ArticleComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticlesProvider from "./components/ArticlesProvider";
 import UserProvider from "./components/UserProvider/UserProvider";
+import CreateArticleComponent from "./components/CreateArticleComponent/CreateArticleComponent";
 
 export default function App() {
   return (
-    <UserProvider>
-      <ArticlesProvider>
-        <body>
-          <header>
-            <HeaderComponent />
-          </header>
-          <BrowserRouter>
+    <BrowserRouter>
+      <UserProvider>
+        <ArticlesProvider>
+          <body>
+            <header>
+              <HeaderComponent />
+            </header>
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="article/:id" element={<ArticleComponent />} />
+              <Route
+                path="createArticle"
+                element={<CreateArticleComponent />}
+              />
             </Routes>
-          </BrowserRouter>
-        </body>
-      </ArticlesProvider>
-    </UserProvider>
+          </body>
+        </ArticlesProvider>
+      </UserProvider>
+    </BrowserRouter>
   );
 }
-
-/**
- *   <body>
-      <ArticlesProvider>
-        <header>
-          <HeaderComponent />
-        </header>
-        <Home />
-      </ArticlesProvider>
-    </body>
- */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { json } from "react-router-dom";
 
 export const ArticlesContext = createContext();
 
@@ -42,6 +43,36 @@ function ArticlesProvider({ children }) {
     setArticles(articles.filter((item) => item.id !== article.id));
   };
 
+  const postArticle = ({ title, body, userId }) => {
+    // we need to wait the userId response from async function in UserProvider
+    userId.then((id) => {
+      // Then now we have the id, we can fetch post
+      return post(id);
+    });
+
+    async function post(id) {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            title: `${title}`,
+            body: `${body}`,
+            userId: `${id}`,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+
+      console.log({ response });
+      const json = await response.json();
+      console.log({ json });
+      return { response, json };
+    }
+  };
+
   return (
     <ArticlesContext.Provider
       value={{
@@ -49,6 +80,7 @@ function ArticlesProvider({ children }) {
         deletArticle,
         article,
         getArticle,
+        postArticle,
       }}
     >
       {children}

@@ -12,7 +12,7 @@ export const QUERIES = {
 
 export const COLORS = {
   Gray: {
-    lightGray: "hsl(0 0 180)",
+    lightGray: "hsl(0 0 90)",
     buttonLightGray: "hsl(0 0 96)",
     buttonDarkGray: "hsl(0 0 40)",
     mediumGray: "hsl(0 0 65)",

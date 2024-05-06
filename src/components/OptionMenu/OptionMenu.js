@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ArticlesContext } from "../ArticlesProvider/ArticlesProvider";
 import IconButtonComponent from "../IconButtonComponent/IconButtonComponent";
 import { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 /**
  *
@@ -12,6 +13,7 @@ import { keyframes } from "styled-components";
  */
 function OptionMenu({ isMenuOpen, onDissmis }) {
   const { article, deletArticle } = useContext(ArticlesContext);
+
   return (
     <Menu style={{ "--isOpen": isMenuOpen ? "flex" : "none" }}>
       <Overlay>
@@ -22,7 +24,10 @@ function OptionMenu({ isMenuOpen, onDissmis }) {
           <li>
             {article.id == undefined ? (
               /* we are in article, so we can delete it */
-              <AdministrationButton>Ajouter un article</AdministrationButton>
+              /*  <ReadMoreLink to={`article/${article.id}`}>Lire la suite</ReadMoreLink> */
+              <AdministrationButton to="createArticle" onClick={onDissmis}>
+                Ajouter un article
+              </AdministrationButton>
             ) : (
               /* because we are not in article when we opened the menu we are in home with article list,
           we can instead add an article */
@@ -88,7 +93,7 @@ const OptionsWrapper = styled.ul`
   list-style-type: none;
 `;
 
-const AdministrationButton = styled.button`
+const AdministrationButton = styled(Link)`
   background: none;
   border: none;
   text-transform: uppercase;
@@ -97,6 +102,8 @@ const AdministrationButton = styled.button`
   font-size: ${FONTSIZE.buttonMenu};
   font-weight: ${FONTWEIGHT.six};
   cursor: pointer;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
 
   &:hover {
     color: black;
