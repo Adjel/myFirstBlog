@@ -4,7 +4,7 @@ import { CommentContext } from "../CommentProvider/CommentProvider";
 import CommentItemComponent from "../CommentItemComponent/CommentItemComponent";
 
 function CommentComponent({ articleId }) {
-  const { fetchComments, comments } = useContext(CommentContext);
+  const { fetchComments, deleteComment, comments } = useContext(CommentContext);
 
   useEffect(() => {
     fetchComments(articleId);
@@ -17,6 +17,7 @@ function CommentComponent({ articleId }) {
           key={id}
           name={name}
           content={body}
+          onClick={() => deleteComment(id)}
         ></CommentItemComponent>
       ))}
     </div>
