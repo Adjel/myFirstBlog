@@ -28,7 +28,7 @@ function CommentProvider({ children }) {
 
   const deleteComment = async (id) => {
     try {
-      const response = await fetch(`${url}/${id}`, {
+      await fetch(`${url}/${id}`, {
         method: "DELETE",
       }).then((json) => {
         console.log({ json });
@@ -43,8 +43,52 @@ function CommentProvider({ children }) {
     }
   };
 
+  const postComment = async ({ postId, name, email, body }) => {
+    try {
+      await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          postId: `${postId}`,
+          // id is supposed to be created by the API
+          // name is supposed to be fetched from user
+          name: `${name}`,
+          email: `${email}`,
+          body: `${body}`,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => {
+          console.log({ response });
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+          // fake the new comment
+          const newComments = [
+            ...comments,
+            {
+              postId: `${postId}`,
+              id: `${new Date()}`,
+              name: `${name}`,
+              email: `${email}`,
+              body: `${body}`,
+            },
+          ];
+          setComments(newComments);
+        });
+    } catch (e) {
+      throw new Error(
+        `${e} cant't post the new comment at postComment in CommentProvider`
+      );
+    }
+  };
+
   return (
-    <CommentContext.Provider value={{ fetchComments, deleteComment, comments }}>
+    <CommentContext.Provider
+      value={{ fetchComments, postComment, deleteComment, comments }}
+    >
       {children}
     </CommentContext.Provider>
   );
