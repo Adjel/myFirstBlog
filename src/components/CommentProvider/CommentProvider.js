@@ -26,8 +26,25 @@ function CommentProvider({ children }) {
     setComments(json);
   };
 
+  const deleteComment = async (id) => {
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        method: "DELETE",
+      }).then((json) => {
+        console.log({ json });
+        // fake response
+        const newcomments = comments.filter((com) => com.id !== id);
+        setComments(newcomments);
+      });
+    } catch (e) {
+      throw new Error(
+        `${e}: delete method failed at CommentProvider in deleteComment`
+      );
+    }
+  };
+
   return (
-    <CommentContext.Provider value={{ fetchComments, comments }}>
+    <CommentContext.Provider value={{ fetchComments, deleteComment, comments }}>
       {children}
     </CommentContext.Provider>
   );

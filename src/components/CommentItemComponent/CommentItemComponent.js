@@ -1,15 +1,14 @@
 import React from "react";
-import Divider from "../Divider/Divider";
 import styled from "styled-components";
 import { COLORS, FONTFAMILY, FONTSIZE, FONTWEIGHT } from "../../Constants";
 import { RiChatDeleteLine } from "react-icons/ri";
 
-function CommentItemComponent({ name, content }) {
+function CommentItemComponent({ name, content, onClick }) {
   return (
     <>
       <Wrapper>
         <HeaderWrapper>
-          <Icon />
+          <DeleteIconButton onClick={onClick} />
           <Name>{name}</Name>
         </HeaderWrapper>
         <Content>{content}</Content>
@@ -35,7 +34,7 @@ const HeaderWrapper = styled.header`
   width: 100%;
 `;
 
-const Icon = styled(RiChatDeleteLine)`
+const DeleteIconButton = styled(RiChatDeleteLine)`
   align-self: flex-end;
   margin-right: ${50 / 16}rem;
   color: ${COLORS.Gray.buttonDarkGray};
@@ -51,6 +50,7 @@ const Name = styled.div`
   font-style: ${FONTFAMILY.lato};
   font-size: ${FONTSIZE.comments.user};
   color: black;
+  text-transform: uppercase;
 `;
 
 const Content = styled.div`
