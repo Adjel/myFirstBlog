@@ -32,6 +32,7 @@ const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: ${8 / 16}rem;
 `;
 
 const DeleteIconButton = styled(RiChatDeleteLine)`
