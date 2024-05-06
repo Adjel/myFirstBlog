@@ -18,6 +18,9 @@ export const COLORS = {
     mediumGray: "hsl(0 0 65)",
     darkGray: "hsl(0 0 60)",
   },
+  font: {
+    darkGray: "hsl(0 0 40)",
+  },
   primary: "hsl(37 45 54)",
 };
 
@@ -42,6 +45,11 @@ export const FONTSIZE = {
   parag: `${16 / 16}rem`,
   buttonMenu: `${13 / 16}rem`,
   button: `${11 / 16}rem`,
+
+  comments: {
+    user: `${14.5 / 16}rem`,
+    content: `${13.5 / 16}rem`,
+  },
 };
 
 export const ICONSIZE = {

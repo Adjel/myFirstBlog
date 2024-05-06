@@ -7,6 +7,7 @@ import { UserContext } from "../UserProvider/UserProvider";
 import AuthorComponent from "../AuthorComponent/AuthorComponent";
 import { useParams } from "react-router-dom";
 import Divider from "../Divider/Divider";
+import CommentComponent from "../CommentComponent/CommentComponent";
 
 function ArticleComponent() {
   const { id } = useParams();
@@ -35,6 +36,8 @@ function ArticleComponent() {
       </Article>
       <Divider />
       <AuthorComponent user={user} />
+      <Divider />
+      <CommentComponent articleId={article.id} />
     </Wrapper>
   );
 }
