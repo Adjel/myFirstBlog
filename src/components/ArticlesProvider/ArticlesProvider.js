@@ -73,6 +73,10 @@ function ArticlesProvider({ children }) {
     }
   };
 
+  const resetArticle = () => {
+    setArticle(null);
+  };
+
   return (
     <ArticlesContext.Provider
       value={{
@@ -81,6 +85,7 @@ function ArticlesProvider({ children }) {
         article,
         getArticle,
         postArticle,
+        resetArticle,
       }}
     >
       {children}

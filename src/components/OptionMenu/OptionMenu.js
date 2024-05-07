@@ -22,15 +22,14 @@ function OptionMenu({ isMenuOpen, onDissmis }) {
         </DismissButtonWrapper>
         <OptionsWrapper>
           <li>
-            {article.id == undefined ? (
+            {/* Article setted in ArticleComponent */}
+            {article?.id == undefined ? (
               /* we are in article, so we can delete it */
-              /*  <ReadMoreLink to={`article/${article.id}`}>Lire la suite</ReadMoreLink> */
               <AdministrationButton to="createArticle" onClick={onDissmis}>
                 Ajouter un article
               </AdministrationButton>
             ) : (
-              /* because we are not in article when we opened the menu we are in home with article list,
-          we can instead add an article */
+              /* we are in home with article list, we want instead add an article */
               <AdministrationButton onClick={deletArticle}>
                 Supprimer
               </AdministrationButton>
