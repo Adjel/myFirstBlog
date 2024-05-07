@@ -14,7 +14,7 @@ function ArticleComponent() {
   const { article, getArticle } = useContext(ArticlesContext);
   const { user, getUserbyId } = useContext(UserContext);
 
-  // Here we want the article to load, one time is ok
+  // Here we want to the fetch the requested article
   useEffect(() => {
     getArticle(id);
   }, []);
@@ -22,7 +22,7 @@ function ArticleComponent() {
   // first we need the article userId to get the user
   // then on page reload we need the user again
   useEffect(() => {
-    getUserbyId(article.userId);
+    getUserbyId(article?.userId);
     console.log({ user });
   }, [getArticle]);
 
@@ -30,14 +30,14 @@ function ArticleComponent() {
     <Wrapper>
       <Article>
         <header>
-          <Title>{article.title}</Title>
+          <Title>{article?.title}</Title>
         </header>
-        <Body>{article.body}</Body>
+        <Body>{article?.body}</Body>
       </Article>
       <Divider />
       <AuthorComponent user={user} />
       <Divider />
-      <CommentComponent articleId={article.id} />
+      <CommentComponent articleId={article?.id} />
     </Wrapper>
   );
 }

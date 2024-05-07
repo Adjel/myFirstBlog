@@ -4,11 +4,16 @@ import ArticleItemComponent from "../../components/ArticleItemComponent/ArticleI
 import styled from "styled-components";
 
 function Home() {
-  const { articles } = useContext(ArticlesContext);
+  const { articles, resetArticle } = useContext(ArticlesContext);
 
   useEffect(() => {
-    console.log(`home: ${articles.length}`);
-  }, [articles]);
+    console.log(`wanna delete the article`);
+    // In header we have an add button in menu
+    // When we are here this button state is addArticle
+    // In articleComponent, this button become a deleteArticle because we have a selected article
+    // So here, we want to go back to no selected article
+    resetArticle();
+  });
 
   return (
     <Wrapper>
