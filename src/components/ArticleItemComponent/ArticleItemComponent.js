@@ -17,7 +17,9 @@ function ArticleItemComponent({ article }) {
 }
 
 const Article = styled.article`
-  padding: 0 ${32 / 16}rem;
+  padding: ${32 / 16}rem;
+  background: ${COLORS.Gray.buttonLightGray};
+  width: 80%;
 `;
 
 const Title = styled.h1`

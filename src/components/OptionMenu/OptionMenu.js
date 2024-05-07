@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FONTFAMILY, COLORS, FONTSIZE, FONTWEIGHT } from "../../Constants";
 import styled from "styled-components";
-import { ArticlesContext } from "../ArticlesProvider/ArticlesProvider";
+import { ArticlesContext } from "../../Providers/ArticlesProvider/ArticlesProvider";
 import IconButtonComponent from "../IconButtonComponent/IconButtonComponent";
 import { keyframes } from "styled-components";
 import { Link } from "react-router-dom";

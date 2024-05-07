@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import { CommentContext } from "../CommentProvider/CommentProvider";
+import { CommentContext } from "../../Providers/CommentProvider/CommentProvider";
 import CommentItemComponent from "../CommentItemComponent/CommentItemComponent";
 import CommentForm from "../CommentForm/CommentForm";
 

@@ -1,10 +1,8 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { COLORS, FONTFAMILY, FONTWEIGHT } from "../../Constants";
-import { ArticlesContext } from "../ArticlesProvider";
-import { UserContext } from "../UserProvider";
-
-const url = "https://jsonplaceholder.typicode.com/posts/";
+import { ArticlesContext } from "../../Providers/ArticlesProvider";
+import { UserContext } from "../../Providers/UserProvider/UserProvider";
 
 function CreateArticleComponent() {
   const { postArticle } = useContext(ArticlesContext);

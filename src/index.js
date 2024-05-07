@@ -2,15 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-
 import Home from "./pages/Home/Home";
 import HeaderComponent from "../src/components/HeaderComponent";
 import ArticleComponent from "./components/ArticleComponent/ArticleComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ArticlesProvider from "./components/ArticlesProvider";
-import UserProvider from "./components/UserProvider/UserProvider";
+import ArticlesProvider from "./Providers/ArticlesProvider/ArticlesProvider";
+import UserProvider from "./Providers/UserProvider/UserProvider";
 import CreateArticleComponent from "./components/CreateArticleComponent/CreateArticleComponent";
-import CommentProvider from "./components/CommentProvider/CommentProvider";
+import CommentProvider from "./Providers/CommentProvider/CommentProvider";
 
 export default function App() {
   return (

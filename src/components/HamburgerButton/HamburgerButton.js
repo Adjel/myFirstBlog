@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CgMenu } from "react-icons/cg";
 import styled from "styled-components";
 import OptionMenu from "../OptionMenu/OptionMenu";

@@ -5,21 +5,27 @@ import { FONTSIZE, FONTWEIGHT } from "../../Constants";
 function AuthorComponent({ user }) {
   return (
     <Wrapper>
-      <header>
-        {user ? (
+      <Header>
+        {user?.username ? (
           <>
-            <Auth>{user?.username}</Auth>
-            <p style={{ margin: `${18 / 18}rem 0 0 0` }}>
-              from {user?.company?.name}
-            </p>
+            {user.company.name && user.company.catchPhrase ? (
+              <>
+                <Auth>{user?.username}</Auth>
+                <p style={{ margin: `${18 / 18}rem 0 0 0` }}>
+                  from {user.company.name}
+                </p>
+                <p>
+                  "<cite>{user.company.catchPhrase}</cite>"
+                </p>
+              </>
+            ) : (
+              <p>{user?.username}</p>
+            )}
           </>
         ) : (
           <p>Anonyme</p>
         )}
-      </header>
-      <p>
-        "<cite>{user?.company?.catchPhrase ?? undefined}</cite>"
-      </p>
+      </Header>
     </Wrapper>
   );
 }
@@ -30,7 +36,13 @@ const Wrapper = styled.section`
   align-items: center;
 `;
 
-const Auth = styled.h1`
+const Header = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Auth = styled.h2`
   style: none;
   font-weight: ${FONTWEIGHT.normal};
   font-size: ${FONTSIZE.h1};

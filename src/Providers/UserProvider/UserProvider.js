@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-import { json } from "react-router-dom";
 
 const url = "https://jsonplaceholder.typicode.com/users";
 export const UserContext = createContext();

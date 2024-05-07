@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CgSearch } from "react-icons/cg";
 import { CgShare } from "react-icons/cg";
 import { IoCloseSharp } from "react-icons/io5";

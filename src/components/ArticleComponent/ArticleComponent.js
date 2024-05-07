@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import { COLORS, FONTFAMILY } from "../../Constants";
+import { FONTFAMILY } from "../../Constants";
 import { FONTSIZE } from "../../Constants";
-import { ArticlesContext } from "../ArticlesProvider";
-import { UserContext } from "../UserProvider/UserProvider";
+import { ArticlesContext } from "../../Providers/ArticlesProvider/ArticlesProvider";
+import { UserContext } from "../../Providers/UserProvider/UserProvider";
 import AuthorComponent from "../AuthorComponent/AuthorComponent";
 import { useParams } from "react-router-dom";
 import Divider from "../Divider/Divider";
